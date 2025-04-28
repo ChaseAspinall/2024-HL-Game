@@ -41,8 +41,8 @@ def int_check(question, low=None, high=None, exit_code=None):
 #low_num = int_check("Low Number? ")
 #print(f"You chose a low number of {low_num}")
 
-high_num = int_check("High Number? ", low=1)
-print(f"You chose a high number of {high_num}")
+#high_num = int_check("High Number? ", low=1)
+#print(f"You chose a high number of {high_num}")
 
 guess = ""
 while guess != "xxx":
