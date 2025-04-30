@@ -1,3 +1,6 @@
+import math
+
+
 def yes_no(question):
     while True:
         response = input(question).lower()
@@ -46,6 +49,14 @@ def int_check(question):
             print(error)
 
 
+def calc_guesses(low, high):
+    num_range = high - low + 1
+    max_raw = math.log2(num_range)
+    max_upped = math.ceil(max_raw)
+    max_guesses = max_upped + 1
+    return max_guesses
+
+
 mode = "regular"
 rounds_played = 0
 
@@ -58,11 +69,16 @@ want_instructions = yes_no("Do you want to see the instructions? ")
 if want_instructions == "yes":
     instructions()
 
-num_rounds = int_check("How many rounds would you like? Push <enter> for infinite mode:")
+num_rounds = int_check("Rounds <enter for infinite>: ",
+                       low=1, exit_code="")
 
 if num_rounds == "infinite":
     mode = "infinite"
     num_rounds = 5
+
+low_num = int_check("Low Number? ")
+high_num = int_check("High Number? ", low=low_num+1)
+guesses_allowed = calc_guesses(low_num, high_num)
 
 while rounds_played < num_rounds:
 
