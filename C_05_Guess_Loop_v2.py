@@ -1,4 +1,4 @@
-def int_check(question):
+def int_check(question, low=None, high=None, exit_code=None):
     while True:
         error = "Please enter an integer that is 1 or more."
 
@@ -59,7 +59,7 @@ while guess != secret and guesses_used < guesses_allowed:
         if guesses_used == 1:
             feedback = "Lucky! You got it on the first guess."
         elif guesses_used == guesses_allowed:
-            feedback = f"Phew! You got it in {guesses_used} guesses>"
+            feedback = f"Phew! You got it in {guesses_used} guesses."
         else:
             feedback = f"Well done! You guesses the secret number in {guesses_used} guesses."
 
